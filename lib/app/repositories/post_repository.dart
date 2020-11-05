@@ -1,23 +1,13 @@
-import 'package:izifood/app/models/post_model.dart';
-import 'package:dio/dio.dart';
-
-import '../controllers/keys.dart';
+import 'package:flutter/material.dart';
+import 'package:izifood/app/api/request.dart';
+import 'package:meta/meta.dart';
 
 class PostRepository {
-  Dio dio = Dio();
-  Future<List<PostModel>> getPosts() async {
-    try {
-      var response = await dio.get(baseUrl + '/posts');
+  final Request api;
 
-      if (response.statusCode == 200) {
-        return List<PostModel>.from(
-            response.data.map((post) => PostModel.fromJson(post)));
-      } else {
-        return List<PostModel>();
-      }
-    } catch (error) {
-      print(error);
-      return List<PostModel>();
-    }
+  PostRepository({@required this.api}) : assert(api != null);
+
+  getPosts() {
+    return api.getPosts();
   }
 }

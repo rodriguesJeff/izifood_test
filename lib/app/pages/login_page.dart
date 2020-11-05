@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:izifood/app/bindings/home_binding.dart';
 import 'package:izifood/app/controllers/keys.dart';
+import 'package:izifood/app/pages/home_page.dart';
 import 'package:izifood/app/pages/widgets/textfield_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -70,7 +73,9 @@ class LoginPage extends StatelessWidget {
                                   color: Color(0xffff2956),
                                   borderRadius: BorderRadius.circular(20.0)),
                               child: FlatButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.off(HomePage(), binding: HomeBinding());
+                                },
                                 child: Center(
                                     child: Text('Fazer login',
                                         style: TextStyle(
