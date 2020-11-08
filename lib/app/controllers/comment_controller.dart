@@ -14,7 +14,6 @@ class CommentController extends GetxController {
 
   getComments() {
     repository.getComments().then((data) {
-      print(data.length);
       this.commentList = data;
     });
   }

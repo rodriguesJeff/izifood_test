@@ -76,7 +76,6 @@ class CommentsPage extends GetView<CommentController> {
                                 shrinkWrap: true,
                                 itemCount: comment.commentList.length,
                                 itemBuilder: (context, index) {
-                                  print(comment.commentList[index].name);
                                   return Padding(
                                     padding: EdgeInsets.only(top: 20.0),
                                     child: Column(

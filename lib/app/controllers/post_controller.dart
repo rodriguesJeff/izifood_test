@@ -8,7 +8,7 @@ class PostController extends GetxController {
   PostController({@required this.repository}) : assert(repository != null);
 
   final _postList = List<PostModel>().obs;
-  get postList => this._postList.value;
+  get postList => this._postList;
   set postList(value) => this._postList.value = value;
 
   getPosts() {
