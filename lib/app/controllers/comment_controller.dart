@@ -9,11 +9,12 @@ class CommentController extends GetxController {
   CommentController({@required this.repository}) : assert(repository != null);
 
   final _commentList = List<CommentModel>().obs;
-  get commentList => this._commentList.value;
+  get commentList => this._commentList;
   set commentList(value) => this.commentList.value = value;
 
   getComments() {
     repository.getComments().then((data) {
+      print(data.length);
       this.commentList = data;
     });
   }

@@ -53,7 +53,7 @@ class HomePage extends GetView<PostController> {
       }, builder: (post) {
         return post.postList.length < 1
             ? Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(25.0),
                 child: Center(child: LinearProgressIndicator()),
               )
             : Stack(
@@ -83,7 +83,6 @@ class HomePage extends GetView<PostController> {
                                         'postId', post.postList[index].id);
                                     Get.to(
                                         CommentsPage(
-                                            id: post.postList[index].id,
                                             title: post.postList[index].title,
                                             body: post.postList[index].body),
                                         binding: CommentBinding());
