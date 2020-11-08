@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:izifood/app/api/request.dart';
+import 'package:izifood/app/api/request_post.dart';
 import 'package:meta/meta.dart';
 
 class PostRepository {
-  final Request api;
+  final RequestPost requestPost;
 
-  PostRepository({@required this.api}) : assert(api != null);
+  PostRepository({@required this.requestPost}) : assert(requestPost != null);
 
   getPosts() {
-    return api.getPosts();
+    return requestPost.getPosts();
   }
 }

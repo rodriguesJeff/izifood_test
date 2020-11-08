@@ -4,9 +4,9 @@ import 'package:izifood/app/controllers/keys.dart';
 import 'package:meta/meta.dart';
 import 'package:izifood/app/models/post_model.dart';
 
-class Request {
+class RequestPost {
   final http;
-  Request({@required this.http});
+  RequestPost({@required this.http});
 
   getPosts() async {
     try {
@@ -20,7 +20,7 @@ class Request {
         print('erro');
       }
     } catch (e) {
-      Exception(e);
+      return Exception(e);
     }
   }
 }

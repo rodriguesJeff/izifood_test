@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:izifood/app/bindings/comment_binding.dart';
 import 'package:izifood/app/controllers/post_controller.dart';
+import 'package:izifood/app/pages/comments_page.dart';
 import 'package:izifood/app/pages/widgets/bottom_navigation_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends GetView<PostController> {
   @override
@@ -49,7 +52,10 @@ class HomePage extends GetView<PostController> {
         Get.find<PostController>().getPosts();
       }, builder: (post) {
         return post.postList.length < 1
-            ? Center(child: CircularProgressIndicator())
+            ? Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Center(child: LinearProgressIndicator()),
+              )
             : Stack(
                 children: [
                   Container(
@@ -70,8 +76,17 @@ class HomePage extends GetView<PostController> {
                               Padding(
                                 padding: EdgeInsets.only(top: 10.0),
                                 child: GestureDetector(
-                                  onTap: () {
-                                    print(post.postList[index].id);
+                                  onTap: () async {
+                                    SharedPreferences prefs =
+                                        await SharedPreferences.getInstance();
+                                    prefs.setInt(
+                                        'postId', post.postList[index].id);
+                                    Get.to(
+                                        CommentsPage(
+                                            id: post.postList[index].id,
+                                            title: post.postList[index].title,
+                                            body: post.postList[index].body),
+                                        binding: CommentBinding());
                                   },
                                   child: Container(
                                     width:
@@ -145,7 +160,7 @@ class HomePage extends GetView<PostController> {
                     top: 0.0,
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.08,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       color: Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
