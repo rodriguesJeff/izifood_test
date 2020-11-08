@@ -66,7 +66,7 @@ class HomePage extends GetView<PostController> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.only(
-                        top: 70.0,
+                        top: 80.0,
                       ),
                       child: ListView.builder(
                         itemCount: 5,
