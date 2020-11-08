@@ -8,4 +8,4 @@
 - Uso da Api do JsonPlaceholder(https://jsonplaceholder.typicode.com)
 
 # Da estrutura
-<img src="https://ibb.co/YdCG7hg" alt="Estrutura do projeto">
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/bv0ngXt/Captura-de-Tela-2020-11-08-s-18-06-31.png" alt="Captura-de-Tela-2020-11-08-s-18-06-31" border="0"></a>
